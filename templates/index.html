@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #mood-form {
+            width: 80%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+        }
+
+        #mood-history-button {
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #mood-history-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mood Analyzer</h1>
+    <form id="mood-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="text">How are you feeling today?</label>
+        <textarea id="text" name="text" rows="4" required></textarea>
+
+        <button type="submit">Analyze Mood</button>
+    </form>
+    <div id="result"></div>
+    <button id="mood-history-button" onclick="redirectToMoodLog()">View Mood History</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('mood-form');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const text = document.getElementById('text').value;
+
+                fetch('/mood', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        text: text,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const resultDiv = document.getElementById('result');
+                        resultDiv.innerHTML = `
+                            <h2>Analysis Result</h2>
+                            <p><strong>Username:</strong> ${username}</p>
+                            <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
+                            <p><strong>Mood:</strong> ${data.mood}</p>
+                        `;
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+
+        function redirectToMoodLog() {
+            window.location.href = "/moodlog.html";
+        }
+    </script>
+</body>
+</html>

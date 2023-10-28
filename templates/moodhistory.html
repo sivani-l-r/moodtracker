@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mood History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .chart {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mood History for {{ username }}</h1>
+    <ul>
+        {% for mood in moods %}
+        <li>Date: {{ mood['date'] }} - Mood: {{ mood['mood'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <div class="chart">
+        {{ plot_div|safe }}
+    </div>
+</body>
+</html>
