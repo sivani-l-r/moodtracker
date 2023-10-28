@@ -21,7 +21,7 @@ Welcome to Zone, your personal mood logger and emotional well-being companion. Z
 ## How to configure
 1. Clone this repository
 ```
-$git clone 
+$git clone https://github.com/sivani-l-r/moodtracker.git
 ```
 2. Install the libraries given in requirements.txt
 ```
