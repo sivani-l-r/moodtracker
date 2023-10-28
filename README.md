@@ -1,6 +1,5 @@
 
 
-![Banner](banner.jpg)
 
 
 # Zone - Your Personal Mood Tracker
