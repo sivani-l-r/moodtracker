@@ -13,7 +13,7 @@ Welcome to Zone, your personal mood logger and emotional well-being companion. Z
 3. [Namitha S](https://github.com/Namitha-S-11465)
 
 ## Link to product walkthrough
-   [link to video](<link>)
+   [link to video](https://youtu.be/83bHjE0BPW0)
 
 ## How it Works ?
 
