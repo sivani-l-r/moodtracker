@@ -1,8 +1,3 @@
-![Banner](banner.jpg)
-
-
-
-
 # Zone - Your Personal Mood Tracker
 
 Welcome to Zone, your personal mood logger and emotional well-being companion. Zone empowers you to gain insight into your emotions, track your mood patterns, and improve your mental health. Whether you're looking to enhance your self-awareness, set emotional goals, or simply express your feelings, Zone is here to support you.
