@@ -33,7 +33,7 @@ $pip install -r requirements.txt
    
 ## How to Run
 ```
-$python app.py
+$python main.py
 ```
 
 ## Future Implementation Plans
